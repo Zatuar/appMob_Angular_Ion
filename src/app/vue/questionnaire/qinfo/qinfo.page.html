@@ -15,7 +15,7 @@
       <ion-item>
         <ion-label> {{question.title}} </ion-label>
       </ion-item>
-      <div *ngIf="question.answer.length>0">
+      <div *ngIf="question.qcm">
         <ion-card *ngFor="let answer of question.answer">
           <ion-item lines="none">
             <ion-checkbox></ion-checkbox>
@@ -25,7 +25,7 @@
           </ion-item>
         </ion-card>          
       </div>
-      <ion-input type="text" *ngIf="question.answer.length==0"></ion-input>
+      <ion-input type="text" *ngIf="!question.qcm"></ion-input>
     </ion-list>
   
   </ion-content>

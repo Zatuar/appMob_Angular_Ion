@@ -10,7 +10,7 @@ import { ListQ } from 'src/app/models/questionnaires/ListQ';
 })
 export class QinfoPage {
   questionnaire: CreateQ;
-  
+  type:number;
   Qid = null;
 
   constructor(private listQ: ListQ,
@@ -21,6 +21,31 @@ export class QinfoPage {
   ngOnInit() {
     this.Qid = this.ARoute.snapshot.paramMap.get('Qid');
     this.questionnaire= this.listQ.getquestionnaires()[this.Qid-1];
+  }
+
+  typeAnswer(){
+    switch(this.type){
+      case 0:
+        this.freeAnswer();
+        break;
+      case 1:
+        this.multiQcm();
+        break;
+      case 2:
+        this.uniqueQcm();
+        break;
+    }
+  }
+  uniqueQcm() {
+
+  }
+  
+  multiQcm() {
+
+  }
+
+  freeAnswer() {
+
   }
 
 }

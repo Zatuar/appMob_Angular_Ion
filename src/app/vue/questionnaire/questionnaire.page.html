@@ -12,13 +12,13 @@
 <ion-content class="ion-padding">
 
   <ion-list ion-item *ngFor="let question of questionnaires">
-    <ion-item [routerLink]="['/qinfo/',question.id]">
+    <ion-item>
       <ion-item>
         <ion-text>
           {{question.qname}}
         </ion-text>
         <ion-text *ngIf="question.read" slot="end">Anwsered</ion-text>
-        <ion-button *ngIf="!question.read" slot="end">Answer</ion-button>
+        <ion-button *ngIf="!question.read" [routerLink]="['/qinfo/',question.id]" slot="end">Answer</ion-button>
       </ion-item>
     </ion-item>
   </ion-list>
