@@ -8,12 +8,15 @@ import { ListF } from 'src/app/models/feedbacks/ListF';
   styleUrls: ['../../vue/feedbacks/feedback.page.scss'],
 })
 export class FeedbackPage {
-  
+  receved:boolean = true;
   feedbacksList: CreateF[];
   
   constructor(private listF: ListF) {}
 
   ionViewWillEnter(){
     this.feedbacksList= this.listF.getfeedbacks().slice();
+  }
+  change(){
+    this.receved=!this.receved;
   }
 }

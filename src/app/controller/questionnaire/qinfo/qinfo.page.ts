@@ -22,7 +22,9 @@ export class QinfoPage {
     this.Qid = this.ARoute.snapshot.paramMap.get('Qid');
     this.questionnaire= this.listQ.getquestionnaires()[this.Qid-1];
   }
-
+  sendAnswer(){
+    //envoyer les réponses à la DB
+  }
   typeAnswer(){
     switch(this.type){
       case 0:
@@ -39,7 +41,7 @@ export class QinfoPage {
   uniqueQcm() {
 
   }
-  
+
   multiQcm() {
 
   }

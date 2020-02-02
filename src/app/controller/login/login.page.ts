@@ -39,6 +39,10 @@ export class LoginPage {
 
   forgotPassword(){
     alert("I forgot my password");
+    /**
+     * redirection sur la page de réinitialisation
+     * de mot de passe
+     */
   }
   
 }

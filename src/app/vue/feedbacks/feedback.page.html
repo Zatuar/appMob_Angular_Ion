@@ -10,26 +10,32 @@
   </ion-header>
   
   <ion-content class="ion-padding">
-  
-    <ion-list ion-item *ngFor="let feedback of feedbacksList">
-      <ion-item [routerLink]="['/finfo/',feedback.id]">
-        <ion-text>
-          <p>
-            {{feedback.fname}} 
-          </p>
-          <p>
-            {{feedback.message}}
-          </p>          
-        </ion-text>
-        <ion-text *ngIf="feedback.read" slot="end">Lu</ion-text>
-        <ion-text *ngIf="!feedback.read" slot="end">Non-lu</ion-text>
-      </ion-item>
-    </ion-list>
+    <div *ngIf="receved">
+      <ion-list ion-item *ngFor="let feedback of feedbacksList">
+        <ion-item [routerLink]="['/finfo/',feedback.id]">
+          <ion-text>
+            <p>
+              {{feedback.fname}} 
+            </p>
+            <p>
+              {{feedback.message}}
+            </p>          
+          </ion-text>
+          <ion-text *ngIf="feedback.read" slot="end">Lu</ion-text>
+          <ion-text *ngIf="!feedback.read" slot="end">Non-lu</ion-text>
+        </ion-item>
+      </ion-list>
+    </div>
+    <div *ngIf="!receved">
+      <ion-text>feedback envoyé</ion-text>
+    </div>
     <ion-button shape="round" [routerLink]="['/fcreate']">
       <ion-icon name="add"></ion-icon>
-    </ion-button>
+    </ion-button>   
 
   </ion-content>
   
   <ion-footer>
+    <ion-button *ngIf="receved" (click)="change()" expand="block">Go to sended</ion-button>
+    <ion-button *ngIf="!receved" (click)="change()" expand="block">Go to receved</ion-button>
   </ion-footer>

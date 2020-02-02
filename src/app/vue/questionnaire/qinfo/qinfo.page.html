@@ -11,23 +11,28 @@
   
   <ion-content class="ion-padding">
 
-    <ion-list ion-item *ngFor="let question of questionnaire.questions">
-      <ion-item>
-        <ion-label> {{question.title}} </ion-label>
-      </ion-item>
-      <div *ngIf="question.qcm">
-        <ion-card *ngFor="let answer of question.answer">
-          <ion-item lines="none">
-            <ion-checkbox></ion-checkbox>
-            <ion-label>
-              <p> {{answer}} </p>
-            </ion-label>
-          </ion-item>
-        </ion-card>          
-      </div>
-      <ion-input type="text" *ngIf="!question.qcm"></ion-input>
-    </ion-list>
-  
+    <form (ngSubmit)="sendAnswer()">
+      <ion-list ion-item *ngFor="let question of questionnaire.questions">
+        <ion-item>
+          <ion-label> {{question.title}} </ion-label>
+        </ion-item>
+        <div *ngIf="question.qcm">
+          <ion-card *ngFor="let answer of question.answer">
+            <ion-item lines="none">
+              <ion-checkbox></ion-checkbox>
+              <ion-label>
+                <p> {{answer}} </p>
+              </ion-label>
+            </ion-item>
+          </ion-card>          
+        </div>
+        <ion-input type="text" *ngIf="!question.qcm"></ion-input>
+      </ion-list>
+      <ion-button type="submit">
+        Send Answers
+      </ion-button>
+    </form>
+      
   </ion-content>
   
   <ion-footer>
