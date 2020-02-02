@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home" text="Back"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Questionnaires list
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-list ion-item *ngFor="let question of questionnaires">
+    <ion-item [routerLink]="['/qinfo/',question.id]">
+      <ion-item>
+        <ion-text>
+          {{question.qname}}
+        </ion-text>
+        <ion-text *ngIf="question.read" slot="end">Anwsered</ion-text>
+        <ion-button *ngIf="!question.read" slot="end">Answer</ion-button>
+      </ion-item>
+    </ion-item>
+  </ion-list>
+  
+<ion-button shape="round"[routerLink]="['/qcreate']">
+  <ion-icon name="add"></ion-icon>
+</ion-button>
+  
+</ion-content>
+
+<ion-footer>
+</ion-footer>

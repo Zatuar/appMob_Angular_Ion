@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home" text="Back"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Profil
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class='ion-padding'>
+  <div>
+    <img src="../../../assets/inconnue.jpg">
+    <p>Name : {{collaborateur.name}} </p>
+    <p>Firstname : {{collaborateur.firstname}} </p>
+    <p>Role : {{collaborateur.role}} </p>
+    <p>Group :</p>
+    <ion-list ion-item *ngFor="let g of collaborateur.groups">
+      <div>
+        <ion-text>{{ g }}</ion-text>
+      </div>
+    </ion-list>
+  </div>
+</ion-content>

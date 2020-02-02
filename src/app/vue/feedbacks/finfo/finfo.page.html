@@ -1,0 +1,23 @@
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/feedbacks" text="Back"></ion-back-button>
+      </ion-buttons>
+      <ion-title>
+        {{feedback.fname}}
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content class="ion-padding">
+    <ion-item>
+      <ion-list ion-item *ngFor="let tag of feedback.tags">
+        <ion-button shape="round"> {{tag}} </ion-button>
+      </ion-list>
+    </ion-item>
+    <ion-text> {{feedback.message}} </ion-text>
+
+  </ion-content>
+  
+  <ion-footer>
+  </ion-footer>

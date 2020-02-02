@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Login Page
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="ion-padding">
+    <img src="../../../assets/SHLogo.jpg"/>
+  </div>
+
+  <form (ngSubmit)="identification()">
+    <ion-item >
+      <ion-label>User ID *</ion-label>
+      <ion-input required type="text" [(ngModel)]="personne.id" name="id" placeholder="user ID"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Password *</ion-label>
+      <ion-input required type="password" [(ngModel)]="personne.password" name="password" placeholder="password"></ion-input>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-button slot="end" fill="clear" (click)="forgotPassword()">Password Forgotten ?</ion-button>
+    </ion-item>
+
+    <ion-button type="submit" shape="round">Log in</ion-button>
+  </form>
+  
+  <ion-button [routerLink]="['/home/',personne.id]">Home Page</ion-button>
+  
+</ion-content>
+
+<ion-footer class="ion-padding">
+  <a href="" >terms of use and confidentiality</a>
+</ion-footer>

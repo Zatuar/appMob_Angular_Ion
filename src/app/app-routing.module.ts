@@ -2,8 +2,17 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)},
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'login', loadChildren: () => import('./controller/login/login.module').then( m => m.LoginPageModule)},
+  { path: 'home/:Cid', loadChildren: () => import('./controller/accueil/home.module').then( m => m.HomePageModule)},
+  { path: 'profil', loadChildren: () => import('./controller/profil/profil.module').then( m => m.ProfilPageModule)},
+  { path: 'settings', loadChildren: () => import('./controller/settings/settings.module').then( m => m.SettingsPageModule)},
+  { path: 'feedbacks', loadChildren: () => import('./controller/feedbacks/feedback.module').then( m => m.FeedbackPageModule)},
+  { path: 'finfo/:Fid', loadChildren: () => import('./controller/feedbacks/finfo/finfo.module').then( m => m.FinfoPageModule)},
+  { path: 'fcreate', loadChildren: () => import('./controller/feedbacks/fcreate/fcreate.module').then( m => m.FcreatePageModule)},
+  { path: 'questionnaires', loadChildren: () => import('./controller/questionnaire/questionnaire.module').then( m => m.QuestionnairePageModule)},
+  { path: 'qinfo/:Qid', loadChildren: () => import('./controller/questionnaire/qinfo/qinfo.module').then( m => m.QinfoPageModule)},
+  { path: 'qcreate', loadChildren: () => import('./controller/questionnaire/qcreate/qcreate.module').then( m => m.QcreatePageModule)}
 ];
 
 @NgModule({

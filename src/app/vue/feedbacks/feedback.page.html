@@ -1,0 +1,35 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/home" text="Back"></ion-back-button>
+      </ion-buttons>
+      <ion-title>
+        Feedback
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content class="ion-padding">
+  
+    <ion-list ion-item *ngFor="let feedback of feedbacksList">
+      <ion-item [routerLink]="['/finfo/',feedback.id]">
+        <ion-text>
+          <p>
+            {{feedback.fname}} 
+          </p>
+          <p>
+            {{feedback.message}}
+          </p>          
+        </ion-text>
+        <ion-text *ngIf="feedback.read" slot="end">Lu</ion-text>
+        <ion-text *ngIf="!feedback.read" slot="end">Non-lu</ion-text>
+      </ion-item>
+    </ion-list>
+    <ion-button shape="round" [routerLink]="['/fcreate']">
+      <ion-icon name="add"></ion-icon>
+    </ion-button>
+
+  </ion-content>
+  
+  <ion-footer>
+  </ion-footer>

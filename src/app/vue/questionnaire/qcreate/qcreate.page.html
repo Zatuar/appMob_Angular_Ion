@@ -1,0 +1,71 @@
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/questionnaires" text="Back"></ion-back-button>
+      </ion-buttons>
+      <ion-title>
+        Questionnaire Creation
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content class="ion-padding">
+
+    <ion-item>
+      <ion-input [(ngModel)]="questionnaire.qname" placeholder="Entrez le nom du questionnaire"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input [(ngModel)]="to" placeholder="Entrez les destinataires"></ion-input>
+    </ion-item>
+
+    <ion-card  *ngFor="let question of questionnaire.questions">
+      <ion-item lines="none">
+        <ion-label>
+          <p>{{ question.title }}</p>
+        </ion-label>
+        <ion-button (click)="deleteQuestion()">
+          <ion-icon slot="icon-only" name="close"></ion-icon>
+        </ion-button>
+      </ion-item>
+    </ion-card>
+  
+    <ion-card>
+      <ion-item lines="none">
+        <ion-input [(ngModel)]="myQuestion.title" placeholder="Entrez votre question"></ion-input>
+        <ion-checkbox (ionChange)="changeCheckState()" [(ngModel)]="myQuestion.qcm" name="QCM"></ion-checkbox>
+        <ion-text>QCM</ion-text>
+        <ion-button (click)="addQuestionToForm()" shape="round" slot="end">
+          <ion-icon slot="icon-only" name="add"></ion-icon>
+        </ion-button>
+      </ion-item>
+      
+      <ion-card *ngIf="myQuestion.qcm">
+        <ion-text>Entrez les réponses de votre QCM</ion-text>
+        <ion-card *ngFor="let answer of myQuestion.answer">
+          <ion-item lines="none">
+            <ion-label>
+              <p> {{answer}} </p>
+            </ion-label>
+          </ion-item>
+        </ion-card>
+        <ion-item lines="none">
+          <ion-input [(ngModel)]="myanswer" placeholder="Entrez une réponse"></ion-input>
+          <ion-button (click)="addPossibleAnswerToQuestion()" shape="round" slot="end">
+            <ion-icon slot="icon-only" name="add"></ion-icon>
+          </ion-button>
+        </ion-item>
+      </ion-card>
+
+    </ion-card>
+  </ion-content>
+  
+  <ion-footer>
+    <ion-button *ngIf="questionnaire.questions.length>0 &&
+                        questionnaire.qname!='' &&
+                        to!='' "
+                (click)="sendQ()" 
+                expand="block">
+      Send Questionnaire
+    </ion-button>
+  </ion-footer>
