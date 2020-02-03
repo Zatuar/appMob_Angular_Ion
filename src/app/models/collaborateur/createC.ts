@@ -9,7 +9,7 @@ export class CreateC {
         this.id=null;
         this.firstName='';
         this.lastName='';
-        this.role= null;
+        this.role= 1;
         this.groups=[];
     }
     

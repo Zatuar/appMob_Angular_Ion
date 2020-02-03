@@ -1,14 +1,27 @@
 <ion-header>
-    <ion-toolbar>
-      <ion-title>
-        Settings Page
-      </ion-title>
-    </ion-toolbar>
-  </ion-header>
-  
-  <ion-content>
-    <div class="ion-padding">
-      <p>This page will be the settings page</p>
-    </div>
-  </ion-content>
-  
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home" text="Back"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Settings
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-item>
+    <ion-text>Dark mode</ion-text>
+    <ion-checkbox slot="end"></ion-checkbox>
+  </ion-item>
+  <ion-item>
+    <ion-text>Mute</ion-text>
+    <ion-checkbox slot="end"></ion-checkbox>    
+  </ion-item>  
+  <ion-item>
+    <ion-text>help</ion-text>  
+  </ion-item>
+</ion-content>
+
+<ion-footer>
+</ion-footer>

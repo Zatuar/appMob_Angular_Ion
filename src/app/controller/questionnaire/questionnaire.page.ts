@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { CreateQ } from 'src/app/models/questionnaires/createQ';
 import { ListQ } from 'src/app/models/questionnaires/ListQ';
+import { CreateC } from 'src/app/models/collaborateur/createC';
+import { Collaborateur } from 'src/app/models/collaborateur/collaborateur';
 
 @Component({
   selector: 'app-questionnaire',
@@ -10,8 +12,9 @@ import { ListQ } from 'src/app/models/questionnaires/ListQ';
 export class QuestionnairePage {
   
   questionnaires: CreateQ[];
-  
-  constructor(private listQ: ListQ) {
+
+  constructor(private listQ: ListQ,
+              private col: Collaborateur) {
   }
 
   ionViewWillEnter(){

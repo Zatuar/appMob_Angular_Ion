@@ -1,3 +1,29 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-menu side="start" menuId="testMenu" contentId="C1">
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-back-button defaultHref="/home" text="Back"></ion-back-button>
+        </ion-buttons>
+        <ion-title>
+          Menu
+        </ion-title>
+      </ion-toolbar>
+    </ion-header>
+    
+    <ion-content>
+
+      <ion-list *ngFor="let onglet of navigate">
+        <ion-menu-toggle auto-hide="true">
+          <ion-item [routerLink]="onglet.url">
+            {{onglet.title}}
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+      
+      <ion-back-button defaultHref="/login" text="Log out"></ion-back-button>
+    </ion-content>
+
+  </ion-menu>
+  <ion-router-outlet id="C1"></ion-router-outlet>
 </ion-app>

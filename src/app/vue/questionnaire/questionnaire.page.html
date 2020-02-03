@@ -23,7 +23,7 @@
     </ion-item>
   </ion-list>
   
-<ion-button shape="round"[routerLink]="['/qcreate']">
+<ion-button *ngIf="col._collaborateur.role==0" shape="round" [routerLink]="['/qcreate']">
   <ion-icon name="add"></ion-icon>
 </ion-button>
   
