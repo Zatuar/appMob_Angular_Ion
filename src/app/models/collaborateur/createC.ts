@@ -2,6 +2,7 @@
 export class CreateC {
     lastName: string;
     firstName: string;
+    email: string;
     role: number;
     groups: string[];
 
@@ -9,7 +10,7 @@ export class CreateC {
         this.id=null;
         this.firstName='';
         this.lastName='';
-        this.role= 1;
+        this.role= 0;
         this.groups=[];
     }
     

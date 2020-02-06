@@ -10,16 +10,24 @@
 </ion-header>
 
 <ion-content class='ion-padding'>
-  <div>
+  <ion-item>
     <img src="../../../assets/inconnue.jpg">
-    <p>Name : {{collaborateur.name}} </p>
-    <p>Firstname : {{collaborateur.firstname}} </p>
-    <p>Role : {{collaborateur.role}} </p>
-    <p>Group :</p>
-    <ion-list ion-item *ngFor="let g of collaborateur.groups">
-      <div>
-        <ion-text>{{ g }}</ion-text>
-      </div>
-    </ion-list>
-  </div>
+  </ion-item>
+  <ion-item>
+    <ion-text>Name : {{collaborateur.lastName}} </ion-text>
+  </ion-item>
+  <ion-item>
+    <ion-text>Firstname : {{collaborateur.firstName}} </ion-text>
+  </ion-item>
+  <ion-item>
+    <ion-text>Role : {{collaborateur.role}} </ion-text>    
+  </ion-item>
+  <ion-item>
+    <ion-text>Group :</ion-text>
+    <ion-item>
+      <ion-card ion-item *ngFor="let group of collaborateur.groups">
+          <ion-text>{{ group }}</ion-text>
+      </ion-card>
+    </ion-item>  
+  </ion-item>
 </ion-content>
