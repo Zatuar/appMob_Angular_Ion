@@ -1,0 +1,22 @@
+{
+	"id_créateur":int,
+	"date":date de création,
+	"Titre":String,
+	"description":String,
+	"groupe_destinataire":int,
+	"questions": {"type_question":int,
+				  "question":string,
+				  "QCM":["réponse":string]
+				  "contraintes" : int}
+}
+
+Pour les contraintes on avait pensé faire un entier composé de plusieurs bit où l'ordre des bits est présenté comme suit :
+- 1 int
+- 2 String
+- 3 boolean
+- 4 date
+- 5 secret
+- 6 obligatoire
+- 7 multiple ou unique
+
+On peut aussi utiliser un tableau si c'est plu pratique.
