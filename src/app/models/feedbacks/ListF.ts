@@ -1,56 +1,26 @@
-import { CreateF } from './createF';
-import { Injectable } from '@angular/core';
+import { Feedbacks } from './feedback';
 
-@Injectable({
-  providedIn:'root'
-})
 
 export class ListF {
-  private _feedbacks: CreateF[] = [
+  private _feedbacks: Feedbacks[] = [
     {
       id: 1,
-      fname: 'Honor',
-      to: 'ESIEA',
-      message: 'Il a bien travaillé',
-      tags: [
-        'Team Spirit',
-        'Comprehensive'
-      ],
+      idsender: 0,
       anonymous: true,
-      read: true
-    },
-    {
-      id: 2,
-      fname: 'Reported',
-      to: 'Jack',
-      message: 'Il n\'écoute personne pour prendre des décisions',
-      tags: [
-        'Blind',
-        'Aggressive'
-      ],
-      anonymous: true,
-      read: true
-    },
-    {
-      id: 3,
-      fname: 'Reported',
-      to: 'ECE',
-      message: 'Attention danger',
-      tags: [
-        'Double-edged',
-        'Demotivate'
-      ],
-      anonymous: true,
+      date: new Date(),
+      title: "Acknoledgement",
+      tags:["Thanks","Appreciated"],
+      message: "Thanks to S&H for trusting us all along the project",
       read: false
     }
   ];
-  public getfeedbacks(): CreateF[] {
+  public getfeedbacks(): Feedbacks[] {
     return this._feedbacks;
   }
-  public setfeedbacks(value: CreateF[]) {
+  public setfeedbacks(value: Feedbacks[]) {
     this._feedbacks = value;
   }
-  public addF(value: CreateF){
+  public addF(value: Feedbacks){
     this._feedbacks.push(value);
   }
 

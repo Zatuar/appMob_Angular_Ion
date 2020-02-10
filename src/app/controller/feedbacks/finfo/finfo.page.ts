@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ListF } from 'src/app/models/feedbacks/ListF';
-import { CreateF } from 'src/app/models/feedbacks/createF';
+import { Feedbacks } from 'src/app/models/feedbacks/feedback';
 
 @Component({
   selector: 'app-finfo',
@@ -10,7 +10,7 @@ import { CreateF } from 'src/app/models/feedbacks/createF';
 })
 export class FinfoPage {
 
-  feedback: CreateF;
+  feedback: Feedbacks;
   Fid = null;
 
   constructor(private listF: ListF,

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { CreateF } from 'src/app/models/feedbacks/createF';
 import { ListF } from 'src/app/models/feedbacks/ListF';
+import { Feedbacks } from 'src/app/models/feedbacks/feedback';
 
 @Component({
   selector: 'app-feedback',
@@ -9,7 +9,7 @@ import { ListF } from 'src/app/models/feedbacks/ListF';
 })
 export class FeedbackPage {
   receved:boolean = true;
-  feedbacksList: CreateF[];
+  feedbacksList: Feedbacks[];
   
   constructor(private listF: ListF) {}
 

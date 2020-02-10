@@ -1,5 +1,5 @@
 {
-	"id_user":int,
+	"id_sender":int,
 	"anonyme":boolean,
 	"date":,
 	"texte":String,

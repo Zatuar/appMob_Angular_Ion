@@ -4,20 +4,37 @@
         <ion-back-button defaultHref="/feedbacks" text="Back"></ion-back-button>
       </ion-buttons>
       <ion-title>
-        {{feedback.fname}}
+        {{feedback.title}}
       </ion-title>
     </ion-toolbar>
   </ion-header>
   
   <ion-content class="ion-padding">
+    <ion-item *ngIf="!feedback.anonymous"> 
+      <ion-text>
+        {{feedback.idsender}}
+      </ion-text>
+    </ion-item>
     <ion-item>
       <ion-list ion-item *ngFor="let tag of feedback.tags">
         <ion-button shape="round"> {{tag}} </ion-button>
       </ion-list>
     </ion-item>
-    <ion-text> {{feedback.message}} </ion-text>
+    <ion-item>
+      <ion-text>
+        <p>
+          Receved message
+        </p> 
+        <p>
+          {{feedback.message}}
+        </p>
+      </ion-text>
+    </ion-item>
 
   </ion-content>
   
   <ion-footer>
+    <ion-item>
+      <ion-text>Envoyé le : {{feedback.date}}</ion-text>
+    </ion-item>
   </ion-footer>

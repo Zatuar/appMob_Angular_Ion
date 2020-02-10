@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NavController } from '@ionic/angular';
 
-import { CreateF } from '../../models/feedbacks/createF';
 import { ListF } from '../../models/feedbacks/ListF';
 import { ListQ } from '../../models/questionnaires/ListQ';
 import { CreateC } from 'src/app/models/collaborateur/createC';
 import { Collaborateur } from 'src/app/models/collaborateur/collaborateur';
 import { Questionnaires } from 'src/app/models/questionnaires/questionnaire';
+import { Feedbacks } from 'src/app/models/feedbacks/feedback';
 
 
 @Component({
@@ -19,7 +19,7 @@ import { Questionnaires } from 'src/app/models/questionnaires/questionnaire';
 export class HomePage implements OnInit{
   //Variables
   Cid: any;//récupérer l'ID pour faire les appel à la BdD
-  feedbacksList: CreateF[];
+  feedbacksList: Feedbacks[];
   questionnairesList: Questionnaires[];
   collaborateur: CreateC;
 
