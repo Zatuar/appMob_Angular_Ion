@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ListQ } from 'src/app/models/questionnaires/ListQ';
 import { Questionnaires } from 'src/app/models/questionnaires/questionnaire';
 import { AnsweringQ } from 'src/app/models/questionnaires/answeringQ';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-qanswering',
@@ -17,7 +18,8 @@ export class QinfoPage {
   Cid:any;
 
   constructor(private listQ: ListQ,
-              private ARoute: ActivatedRoute) {
+              private ARoute: ActivatedRoute,
+              private nav: NavController) {
 
   }
   
@@ -28,7 +30,9 @@ export class QinfoPage {
     console.log(this.questionnaire);
   }
   sendAnswer(){
+    this.questionnaire.read=true;
     console.log("sended");
+    this.nav.pop();
     //envoyer les réponses à la DB
   }
   typeAnswer(){

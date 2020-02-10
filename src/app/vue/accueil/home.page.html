@@ -22,6 +22,8 @@
             {{feedback.title}}
           </p>
         </ion-text>
+        <ion-text *ngIf="feedback.read" slot="end">Lu</ion-text>
+        <ion-text *ngIf="!feedback.read" slot="end">Non-lu</ion-text>
       </ion-item>
       <ion-item>
       <ion-list *ngFor="let tag of feedback.tags">
@@ -48,8 +50,10 @@
       <ion-label> Questionnaires </ion-label>
     </ion-item>
     <ion-card ion-item *ngFor="let question of questionnairesList">
-      <ion-item (click)="goToAnsweringQ(question.id)">
+      <ion-item>
         <ion-text> {{question.title}} </ion-text>
+        <ion-button slot="end" *ngIf="!question.read" (click)="goToAnsweringQ(question.id)">Answer</ion-button>
+        <ion-button slot="end" fill="outline" *ngIf="question.read">Answered</ion-button>
       </ion-item>
     </ion-card>
   </div>

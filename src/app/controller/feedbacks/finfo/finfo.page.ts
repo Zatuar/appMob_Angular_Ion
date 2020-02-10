@@ -21,5 +21,6 @@ export class FinfoPage {
   ngOnInit() {
     this.Fid = this.ARoute.snapshot.paramMap.get('Fid');
     this.feedback= this.listF.getfeedbacks()[this.Fid-1];
+    this.feedback.read=true;
   }
 }
