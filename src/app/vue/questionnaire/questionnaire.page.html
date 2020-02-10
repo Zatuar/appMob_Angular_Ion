@@ -10,20 +10,20 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-
-  <ion-list ion-item *ngFor="let question of questionnaires">
+  
+  <ion-list ion-item *ngFor="let questionnaire of questionnaires">
     <ion-item>
       <ion-item>
         <ion-text>
-          {{question.qname}}
+          {{questionnaire.title}}
         </ion-text>
-        <ion-text *ngIf="question.read" slot="end">Anwsered</ion-text>
-        <ion-button *ngIf="!question.read" [routerLink]="['/qinfo/',question.id]" slot="end">Answer</ion-button>
+        <ion-button slot="end" *ngIf="!questionnaire.read" (click)="goToAnsweringQ(questionnaire.id)">Answer</ion-button>
+        <ion-button slot="end" fill="outline" *ngIf="questionnaire.read">Answered</ion-button>
       </ion-item>
     </ion-item>
   </ion-list>
   
-<ion-button *ngIf="col._collaborateur.role==0" shape="round" [routerLink]="['/qcreate']">
+<ion-button *ngIf="Crole==4" shape="round" (click)="goToCreateQ()">
   <ion-icon name="add"></ion-icon>
 </ion-button>
   

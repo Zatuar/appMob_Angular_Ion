@@ -1,0 +1,11 @@
+{
+	"id_questionnaire":int,
+	"id_user":int,
+	"Titre":String,
+	"description":String,
+	"lu":boolean,
+	"questions": {"type_question":int,
+				  "question":string,
+				  "QCM":["réponse":string],
+				  "contraintes" : tableau_boolean}
+}

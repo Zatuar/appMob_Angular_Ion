@@ -10,19 +10,24 @@
   </ion-header>
   
   <ion-content class="ion-padding">
+    <ion-card>
+      <ion-item>
+        <ion-input [(ngModel)]="questionnaire.title" placeholder="Entrez le nom du questionnaire"></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-input [(ngModel)]="to" placeholder="Entrez les destinataires"></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-input [(ngModel)]="questionnaire.description" placeholder="Entrez une présentation sur le pourquoi vous faite ce questionnaire"></ion-input>
+      </ion-item>
+    </ion-card>
 
-    <ion-item>
-      <ion-input [(ngModel)]="questionnaire.qname" placeholder="Entrez le nom du questionnaire"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-input [(ngModel)]="to" placeholder="Entrez les destinataires"></ion-input>
-    </ion-item>
-
-    <ion-card  *ngFor="let question of questionnaire.questions">
+    <ion-card  *ngFor="let q of questionnaire.questions">
       <ion-item lines="none">
         <ion-label>
-          <p>{{ question.title }}</p>
+          <p>{{ q.question }}</p>
         </ion-label>
         <ion-button (click)="deleteQuestion()">
           <ion-icon slot="icon-only" name="close"></ion-icon>
@@ -32,17 +37,23 @@
   
     <ion-card>
       <ion-item lines="none">
-        <ion-input [(ngModel)]="myQuestion.title" placeholder="Entrez votre question"></ion-input>
-        <ion-checkbox (ionChange)="changeCheckState()" [(ngModel)]="myQuestion.qcm" name="QCM"></ion-checkbox>
-        <ion-text>QCM</ion-text>
+        <ion-input [(ngModel)]="myQuestion.question" placeholder="Entrez votre question"></ion-input>
         <ion-button (click)="addQuestionToForm()" shape="round" slot="end">
           <ion-icon slot="icon-only" name="add"></ion-icon>
         </ion-button>
       </ion-item>
+      <ion-item>
+        <ion-checkbox [(ngModel)]="myQuestion.constraints[0]" name="QCM"></ion-checkbox>
+        <ion-text>Required</ion-text>
+        <ion-checkbox [(ngModel)]="myQuestion.qcm" name="QCM"></ion-checkbox>
+        <ion-text>QCM</ion-text>
+        <ion-checkbox *ngIf="myQuestion.qcm" [(ngModel)]="myQuestion.constraints[1]" name="QCM"></ion-checkbox>
+        <ion-text *ngIf="myQuestion.qcm">Multi choice</ion-text>
+      </ion-item>
       
       <ion-card *ngIf="myQuestion.qcm">
         <ion-text>Entrez les réponses de votre QCM</ion-text>
-        <ion-card *ngFor="let answer of myQuestion.answer">
+        <ion-card *ngFor="let answer of myQuestion.QCManswer">
           <ion-item lines="none">
             <ion-label>
               <p> {{answer}} </p>

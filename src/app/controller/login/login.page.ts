@@ -2,13 +2,14 @@ import { Component } from '@angular/core';
 import { CreateC } from 'src/app/models/collaborateur/createC';
 import { Collaborateur } from 'src/app/models/collaborateur/collaborateur';
 import { verifyHostBindings } from '@angular/compiler';
-import { ToastController } from '@ionic/angular';
+import { ToastController, NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
   templateUrl: '../../vue/login/login.page.html',
   styleUrls: ['../../vue/login/login.page.scss'],
 })
+
 export class LoginPage {
 
   personne ={
@@ -17,7 +18,7 @@ export class LoginPage {
   };
   
 
-  constructor() {
+  constructor(private nav: NavController) {
 
   }
 
@@ -25,6 +26,7 @@ export class LoginPage {
     if(this.personne.id!='' && this.personne.password!=''){
       if(this.connexionVerification()){
         alert("Connexion made");
+        this.nav.navigateForward("/home/"+this.personne.id);
       }else{
         alert("Connexion failed");
       }
@@ -32,6 +34,7 @@ export class LoginPage {
       alert("Connexion failed");
     }
   }
+  
   connexionVerification():boolean{
     //vérification de la connection
     return true;

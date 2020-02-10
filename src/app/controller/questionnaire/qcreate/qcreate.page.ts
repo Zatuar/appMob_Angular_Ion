@@ -3,6 +3,7 @@ import { CreateQ } from 'src/app/models/questionnaires/createQ';
 import { Createq } from 'src/app/models/questionnaires/question/createq';
 import { ListQ } from 'src/app/models/questionnaires/ListQ';
 import { NavController } from '@ionic/angular';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-qcreate',
@@ -14,28 +15,25 @@ export class QcreatePage {
   myQuestion= new Createq('');
   to:string;
   myanswer: '';
+  Cid: any;
 
   
-  constructor(private listQ: ListQ,
-              private nav: NavController) {
-    this.questionnaire=new CreateQ(this.listQ.getquestionnaires().length);
+  constructor(private nav: NavController,
+              private Aroute: ActivatedRoute) {
+    this.questionnaire=new CreateQ(this.Cid);
   }
 
-  changeCheckState(){ }
+  ngOnInit() {
+    this.Cid = this.Aroute.snapshot.paramMap.get('Cid');
+  }
+
   addQuestionToForm() {
-    console.log("Before pushing : "+this.myQuestion.title);
-    console.log(this.questionnaire.questions);
-    //this.questionnaire.questions.push(this.myQuestion);
-    this.questionnaire.questions[this.questionnaire.questions.length]=this.myQuestion;
-    console.log("After pushing : "+this.myQuestion.title);
-    console.log(this.questionnaire.questions);
+    this.questionnaire.questions.push(this.myQuestion);
     //création d'une nouvelle question
     this.myQuestion=new Createq('');
   }
   addPossibleAnswerToQuestion() {
-    console.log(this.myanswer);
-    console.log(this.myQuestion.answer);
-    this.myQuestion.answer.push(this.myanswer);
+    this.myQuestion.QCManswer.push(this.myanswer);
     //réinitialisation
     this.myanswer='';
   }
@@ -43,7 +41,8 @@ export class QcreatePage {
     this.questionnaire.questions.pop();
   }
   sendQ() {
-    this.listQ.addQ(this.questionnaire);
+    this.questionnaire.date= new Date();
+    console.log(this.questionnaire);
     console.log('sended');
     this.nav.pop();
   }

@@ -12,7 +12,7 @@
 <ion-content class="ion-padding">
 
   <div>
-    <ion-item [routerLink]="['/feedbacks']">
+    <ion-item (click)="goToFeedbacks()">
       <ion-label> Feedbacks </ion-label>
     </ion-item>
     <ion-card ion-item *ngFor="let feedback of feedbacksList">
@@ -31,7 +31,7 @@
     </ion-card>
   </div>
   
-  <div [routerLink]="['/profil']">
+  <div (click)="goToProfil()">
     <ion-item>
       <ion-label> Profil </ion-label>
     </ion-item>
@@ -44,12 +44,12 @@
   </div>
     
   <div>
-    <ion-item [routerLink]="['/questionnaires']">
+    <ion-item (click)="goToQuestionnaires()">
       <ion-label> Questionnaires </ion-label>
     </ion-item>
     <ion-card ion-item *ngFor="let question of questionnairesList">
-      <ion-item [routerLink]="['/qinfo/',question.id]">
-        <ion-text> {{question.qname}} </ion-text>
+      <ion-item (click)="goToAnsweringQ(question.id)">
+        <ion-text> {{question.title}} </ion-text>
       </ion-item>
     </ion-card>
   </div>

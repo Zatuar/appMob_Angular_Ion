@@ -1,0 +1,9 @@
+{
+	"id_user":int,
+	"destinataire":String,
+	"anonyme":boolean,
+	"date":,
+	"texte":String,
+	"sujet":String,
+	
+}

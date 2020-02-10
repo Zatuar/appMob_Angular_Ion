@@ -1,86 +1,39 @@
-import { CreateQ } from './createQ';
+import { Questionnaires } from './questionnaire';
 import { Createq } from './question/createq';
 
+
 export class ListQ {
-  private _questionnaires: CreateQ[] = [
+  private _questionnaires: Questionnaires[] = [
     {
-      id: 1,
-      qname: 'Nom & front',
-      questions: [
-      {
-        title: 'Quel est votre nom?',
-        answer:[],
-        qcm: false
-      },
-      {
-        title: 'Comment trouvez vous le front-end de l\'appli?',
-        answer:[
-          'horrible',
-          'bad',
-          'normal',
-          'great',
-          'fantastique'
-        ],
-        qcm: true
-      }
-    ],
-      read: true
-    },
-    {
-      id:2,
-      qname: 'Prenom & back',
-      questions: [
-      {
-        title: 'Quel est votre prénom?',
-        answer:[],
-        qcm: false,
-      },
-      {
-        title: 'Comment trouvez vous le back-end de l\'appli?',
-        answer:[
-          'horrible',
-          'bad',
-          'normal',
-          'great',
-          'fantastique'
-        ],
-        qcm: true
-      }
-    ],
-      read: false
-    },
-    {
-      id:3,
-      qname: 'Role & BdD',
-      questions: [
-      {
-        title: 'Quel est votre rôle?',
-        answer:[],
-        qcm: false
-      },
-      {
-        title: 'Comment trouvez vous la base de donnée de l\'appli?',
-        answer:[
-          'horrible',
-          'bad',
-          'normal',
-          'great',
-          'fantastique'
-        ],
-        qcm: true
-      }
-    ],
+      id:1,
+      idcreateur: 1,
+      title: 'App\'s Satisfaction',
+      description: 'Hello everyone, we are the creator of the app, can you give us 30s of your time for answering to this questionnaire?',
+      questions: Createq[2]= [
+        {
+          question:'What is your name?',
+          qcm: false,
+          QCManswer: [],
+          constraints: [true,false]
+        },
+        {
+          question:'Are you satisfy of the app?',
+          qcm: true,
+          QCManswer: ['Definitely, no','Can be better','Don\'t mind','Yes','Impress'],
+          constraints: [true,false]
+        }
+      ],
       read: false
     }
   ] ;
   
-  public getquestionnaires(): CreateQ[] {
+  public getquestionnaires(): Questionnaires[] {
     return this._questionnaires;
   }
-  public setquestionnaires(value: CreateQ[]) {
+  public setquestionnaires(value: Questionnaires[]) {
     this._questionnaires = value;
   }
-  public addQ(value: CreateQ){
+  public addQ(value: Questionnaires){
     this._questionnaires.push(value);
   }
 }

@@ -1,0 +1,11 @@
+{
+	"id_user":int,
+	"anonyme":boolean,
+	"date":,
+	"texte":String,
+	"sujet":String,
+	"Lu":boolean,
+	
+}
+
+Si tu veux changer des éléments pas de probleme juste préviens moi

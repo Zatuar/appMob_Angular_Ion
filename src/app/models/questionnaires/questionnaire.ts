@@ -1,16 +1,16 @@
 import { Createq } from './question/createq';
 
-export class CreateQ {
+export class Questionnaires {
+    idcreateur:number;
     title: string;
     description: string;
-    date: Date;
-    destinataire: number[];
     questions: Createq[];
+    read:boolean;
 
-    constructor(public idcreateur: number){
+    constructor(public id: number){
         this.title='';
         this.questions=[];
-        this.date= new Date();
-        this.destinataire=[];
+        this.read=false;
+        this.idcreateur=0;
     }
 }

@@ -1,10 +1,16 @@
 
 export class Createq {
-    answer: string[];
+    QCManswer: string[];
     qcm: boolean;
+    constraints: boolean[];
+    /**
+     *première case des contraintes : obligatoire
+     *deuxième case des contraintes : multi-choix
+     */
 
-    constructor(public title: string){
+    constructor(public question:string){
         this.qcm= false;
-        this.answer=[];
+        this.QCManswer=[];
+        this.constraints=[false,false];
     }
 }

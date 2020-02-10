@@ -4,30 +4,30 @@
         <ion-back-button defaultHref="/questionnaires" text="Back"></ion-back-button>
       </ion-buttons>
       <ion-title>
-        {{questionnaire.qname}}
+        {{questionnaire.title}}
       </ion-title>
     </ion-toolbar>
   </ion-header>
   
   <ion-content class="ion-padding">
-
+    <ion-text>{{questionnaire.description}}</ion-text>
     <form (ngSubmit)="sendAnswer()">
-      <ion-list ion-item *ngFor="let question of questionnaire.questions">
+      <ion-list ion-item *ngFor="let q of questionnaire.questions">
         <ion-item>
-          <ion-label> {{question.title}} </ion-label>
+          <ion-text> {{q.question}} </ion-text>
+          <ion-text *ngIf="q.constraints[0]">*</ion-text>
         </ion-item>
-        <div *ngIf="question.qcm">
-          <ion-card *ngFor="let answer of question.answer">
-            <ion-item lines="none">
+        <div *ngIf="q.qcm">
+          <ion-card *ngFor="let answer of q.QCManswer">
+            <ion-item (click)="typeAnswer()">
               <ion-checkbox></ion-checkbox>
-              <ion-label>
-                <p> {{answer}} </p>
-              </ion-label>
+              <ion-text> {{answer}} </ion-text>
             </ion-item>
           </ion-card>          
         </div>
-        <ion-input type="text" *ngIf="!question.qcm"></ion-input>
+        <ion-input type="text" *ngIf="!q.qcm"></ion-input>
       </ion-list>
+      <ion-text>Toute question comportant une * est obligatoire</ion-text>
       <ion-button type="submit">
         Send Answers
       </ion-button>

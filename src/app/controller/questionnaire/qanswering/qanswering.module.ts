@@ -4,7 +4,7 @@ import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
-import { QinfoPage } from './qinfo.page';
+import { QinfoPage } from './qanswering.page';
 
 @NgModule({
   imports: [

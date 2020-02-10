@@ -10,9 +10,9 @@ const routes: Routes = [
   { path: 'feedbacks', loadChildren: () => import('./controller/feedbacks/feedback.module').then( m => m.FeedbackPageModule)},
   { path: 'finfo/:Fid', loadChildren: () => import('./controller/feedbacks/finfo/finfo.module').then( m => m.FinfoPageModule)},
   { path: 'fcreate', loadChildren: () => import('./controller/feedbacks/fcreate/fcreate.module').then( m => m.FcreatePageModule)},
-  { path: 'questionnaires', loadChildren: () => import('./controller/questionnaire/questionnaire.module').then( m => m.QuestionnairePageModule)},
-  { path: 'qinfo/:Qid', loadChildren: () => import('./controller/questionnaire/qinfo/qinfo.module').then( m => m.QinfoPageModule)},
-  { path: 'qcreate', loadChildren: () => import('./controller/questionnaire/qcreate/qcreate.module').then( m => m.QcreatePageModule)}
+  { path: 'questionnaires/:Cid/:Crole', loadChildren: () => import('./controller/questionnaire/questionnaire.module').then( m => m.QuestionnairePageModule)},
+  { path: 'qanswering/:Cid/:Qid', loadChildren: () => import('./controller/questionnaire/qanswering/qanswering.module').then( m => m.QinfoPageModule)},
+  { path: 'qcreate/:Cid', loadChildren: () => import('./controller/questionnaire/qcreate/qcreate.module').then( m => m.QcreatePageModule)}
 ];
 
 @NgModule({

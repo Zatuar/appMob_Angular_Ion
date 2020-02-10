@@ -6,7 +6,7 @@
 	"groupe_destinataire":int,
 	"questions": {"type_question":int,
 				  "question":string,
-				  "QCM":["réponse":string]
+				  "QCM":["réponse":string],
 				  "contraintes" : int}
 }
 
