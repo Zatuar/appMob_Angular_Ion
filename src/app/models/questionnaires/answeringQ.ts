@@ -1,4 +1,4 @@
-import { Answeringq } from './answer/answeringq';
+import { Answeringq } from './question/answeringq';
 
 
 export class AnsweringQ {
