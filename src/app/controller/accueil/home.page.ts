@@ -17,10 +17,10 @@ import { Feedbacks } from 'src/app/models/feedbacks/feedback';
 })
 
 export class HomePage implements OnInit{
-  //Variables
+  
   Cid: any;//récupérer l'ID pour faire les appel à la BdD
-  feedbacksList: Feedbacks[];
-  questionnairesList: Questionnaires[];
+  feedbacks: Feedbacks[];
+  questionnaires: Questionnaires[];
   collaborateur: CreateC;
 
   constructor(private listF: ListF,
@@ -37,12 +37,15 @@ export class HomePage implements OnInit{
   }
 
   ionViewWillEnter(){
-    this.questionnairesList= this.listQ.getquestionnaires();
-    this.feedbacksList= this.listF.getfeedbacks();
+    this.questionnaires= this.listQ.getquestionnaires();
+    this.feedbacks= this.listF.getfeedbacks();
   }
 
   goToFeedbacks(){
     this.nav.navigateForward("/feedbacks/"+this.collaborateur.id);
+  }
+  goToFeedbackInfo(Fid: number){
+    this.nav.navigateForward("/finfo/"+Fid);
   }
 
   goToProfil(){
@@ -52,7 +55,6 @@ export class HomePage implements OnInit{
   goToQuestionnaires(){
     this.nav.navigateForward("/questionnaires/"+this.collaborateur.id+"/"+this.collaborateur.role);
   }
-
   goToAnsweringQ(Qid:number){
     this.nav.navigateForward("/qanswering/"+this.collaborateur.id+"/"+Qid);
   }

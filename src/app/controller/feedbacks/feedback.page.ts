@@ -11,7 +11,7 @@ import { Feedbacks } from 'src/app/models/feedbacks/feedback';
 })
 export class FeedbackPage {
   receved:boolean = true;
-  feedbacksList: Feedbacks[];
+  feedbacks: Feedbacks[];
   Cid:any;
   
   constructor(private listF: ListF,
@@ -20,7 +20,7 @@ export class FeedbackPage {
 
   ionViewWillEnter(){
     this.Cid = this.Aroute.snapshot.paramMap.get('Cid');
-    this.feedbacksList= this.listF.getfeedbacks().slice();
+    this.feedbacks= this.listF.getfeedbacks().slice();
   }
   change(){
     this.receved=!this.receved;

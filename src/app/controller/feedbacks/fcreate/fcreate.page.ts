@@ -11,7 +11,7 @@ import { CreateF } from 'src/app/models/feedbacks/createF';
 export class FcreatePage implements OnInit{
   feedback: CreateF;
   tags:string;
-  to;
+  to:string='';
   Cid: any;
 
   constructor(private nav: NavController,

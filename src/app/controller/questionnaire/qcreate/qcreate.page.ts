@@ -13,7 +13,7 @@ import { ActivatedRoute } from '@angular/router';
 export class QcreatePage {
   questionnaire: CreateQ;
   myQuestion= new Createq('');
-  to:string;
+  to:string='';
   myanswer: '';
   Cid: any;
 

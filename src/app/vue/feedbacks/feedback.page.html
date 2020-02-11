@@ -14,7 +14,7 @@
   
   <ion-content class="ion-padding">
     <div *ngIf="receved">
-      <ion-card ion-item *ngFor="let feedback of feedbacksList">
+      <ion-card ion-item *ngFor="let feedback of feedbacks">
           <ion-item [routerLink]="['/finfo/',feedback.id]">
             <ion-text> {{feedback.title}} </ion-text>
             <ion-text *ngIf="feedback.read" slot="end">Lu</ion-text>

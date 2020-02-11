@@ -29,7 +29,7 @@
         <ion-text> Do you want to be anonymous ?</ion-text>
         <ion-checkbox (ionChange)="changeCheckState()" [(ngModel)]="feedback.anonymous" name="anonymous"></ion-checkbox>
       </ion-item>  
-      <ion-button type="submit" shape="round">Send</ion-button>
+      <ion-button *ngIf="to!='' " type="submit" shape="round">Send</ion-button>
     </form>
   </ion-content>
   
