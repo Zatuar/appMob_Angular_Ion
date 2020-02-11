@@ -3,8 +3,11 @@
       <ion-buttons slot="start">
         <ion-back-button defaultHref="/home" text="Back"></ion-back-button>
       </ion-buttons>
-      <ion-title>
-        Feedback
+      <ion-title *ngIf="!receved">
+        Sended Feedback
+      </ion-title>
+      <ion-title *ngIf="receved">
+        Receved Feedback
       </ion-title>
     </ion-toolbar>
   </ion-header>
@@ -28,13 +31,13 @@
     <div *ngIf="!receved">
       <ion-text>feedback envoyé</ion-text>
     </div>
-    <ion-button shape="round" [routerLink]="['/fcreate']">
+    <ion-button shape="round" (click)="goToFeedbackCreation()">
       <ion-icon name="add"></ion-icon>
     </ion-button>   
 
   </ion-content>
   
   <ion-footer>
-    <ion-button *ngIf="receved" (click)="change()" expand="block">Go to sended</ion-button>
-    <ion-button *ngIf="!receved" (click)="change()" expand="block">Go to receved</ion-button>
+    <ion-button *ngIf="receved" (click)="change()" expand="block">Go to sended feedback</ion-button>
+    <ion-button *ngIf="!receved" (click)="change()" expand="block">Go to receved feedback</ion-button>
   </ion-footer>

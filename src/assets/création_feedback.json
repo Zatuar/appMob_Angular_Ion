@@ -1,6 +1,6 @@
 {
 	"id_user":int,
-	"destinataire":String,
+	"destinataire":String[],
 	"anonyme":boolean,
 	"date":,
 	"texte":String,

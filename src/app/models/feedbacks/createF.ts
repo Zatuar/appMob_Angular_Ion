@@ -1,18 +1,18 @@
 
 export class CreateF {
-    fname: string;
-    to: string;
+    title: string;
+    to: string[];
     tags: string[];
-    message: string;
     anonymous: boolean;
-    read: boolean;
+    message: string;
+    date: Date;
 
     constructor(public id: number){
-        this.fname= '';
-        this.to= '';
+        this.title= '';
+        this.to= [];
         this.tags= [];
         this.message= '';
         this.anonymous= false;
-        this.read= false;
+        this.date= new Date();
     }
 }

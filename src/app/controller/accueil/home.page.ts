@@ -42,7 +42,7 @@ export class HomePage implements OnInit{
   }
 
   goToFeedbacks(){
-    this.nav.navigateForward("/feedbacks");
+    this.nav.navigateForward("/feedbacks/"+this.collaborateur.id);
   }
 
   goToProfil(){

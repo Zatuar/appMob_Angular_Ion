@@ -1,29 +1,35 @@
-import { Component } from '@angular/core';
-import { ListF } from 'src/app/models/feedbacks/ListF';
-import { CreateF } from 'src/app/models/feedbacks/createF';
+import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
+import { ActivatedRoute } from '@angular/router';
+import { CreateF } from 'src/app/models/feedbacks/createF';
 
 @Component({
   selector: 'app-fcreate',
   templateUrl: '../../../vue/feedbacks/fcreate/fcreate.page.html',
   styleUrls: ['../../../vue/feedbacks/fcreate/fcreate.page.scss'],
 })
-export class FcreatePage {
+export class FcreatePage implements OnInit{
   feedback: CreateF;
   tags:string;
+  to;
+  Cid: any;
 
-  constructor(private listF: ListF,
-              private nav: NavController) {
-    this.feedback= new CreateF(listF.getfeedbacks().length);
+  constructor(private nav: NavController,
+              private Aroute: ActivatedRoute) {
+
+  }
+  ngOnInit() {
+    this.Cid = this.Aroute.snapshot.paramMap.get('Cid');
+    this.feedback= new CreateF(this.Cid);
   }
 
   changeCheckState() {}
 
   create(){
     this.feedback.tags=this.tags.split(',');
-    this.feedback.id= this.listF.getfeedbacks().length+1;
+    this.feedback.to=this.to.split(',');
+    this.feedback.date=new Date();
     console.log(this.feedback);
-    this.listF.addF(this.feedback);
     this.nav.pop();
 
   };

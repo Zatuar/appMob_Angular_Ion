@@ -11,18 +11,13 @@
   
   <ion-content class="ion-padding">
 
-    <ion-item>
-      <ion-text>
-        Page de creation de feedback
-      </ion-text>
-    </ion-item>
     <form (ngSubmit)="create()">
+      <ion-item>
+        <ion-input type="text" [(ngModel)]="feedback.title" name="name" placeholder="Title"></ion-input>
+      </ion-item>
       <ion-item >
         <ion-text>to : </ion-text>
-        <ion-input type="text" [(ngModel)]="feedback.to" name="to" placeholder="receiver"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-input type="text" [(ngModel)]="feedback.fname" name="name" placeholder="Title"></ion-input>
+        <ion-input type="text" [(ngModel)]="to" name="to" placeholder="receiver"></ion-input>
       </ion-item>
       <ion-item>
         <ion-input type="text" [(ngModel)]="tags" name="tags" placeholder="your tags"></ion-input>
