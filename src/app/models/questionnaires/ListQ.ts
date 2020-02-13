@@ -21,6 +21,12 @@ export class ListQ {
           qcm: true,
           QCManswer: ['Definitely, no','Can be better','Don\'t mind','Yes','Impress'],
           constraints: [true,false]
+        },
+        {
+          question:'What do you think we can upgrate?',
+          qcm: false,
+          QCManswer: [],
+          constraints: [false,false]
         }
       ],
       read: false

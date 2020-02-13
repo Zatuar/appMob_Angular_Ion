@@ -2,9 +2,10 @@ import { Answeringq } from './question/answeringq';
 
 
 export class AnsweringQ {
-    answers: Answeringq[];
+    answers: string[];
+    i:number;
     
-    constructor(public idanswerer: number,public idQ:number){
-        this.answers=[];
+    constructor(public idanswerer: number,public idQ: number,size:number){
+        this.answers= [];
     }
 }

@@ -20,11 +20,11 @@ export class QcreatePage {
   
   constructor(private nav: NavController,
               private Aroute: ActivatedRoute) {
-    this.questionnaire=new CreateQ(this.Cid);
   }
 
   ngOnInit() {
     this.Cid = this.Aroute.snapshot.paramMap.get('Cid');
+    this.questionnaire=new CreateQ(this.Cid);
   }
 
   addQuestionToForm() {

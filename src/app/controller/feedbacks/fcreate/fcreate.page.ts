@@ -10,7 +10,7 @@ import { CreateF } from 'src/app/models/feedbacks/createF';
 })
 export class FcreatePage implements OnInit{
   feedback: CreateF;
-  tags:string;
+  tags:string='';
   to:string='';
   Cid: any;
 

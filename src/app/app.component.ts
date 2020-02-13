@@ -31,7 +31,18 @@ export class AppComponent {
     this.navigate=[
       {
         title: "Settings",
-        url: "/settings"
+        url: "/settings",
+        back: false
+      },
+      {
+        title: "Profil",
+        url: "/profil",
+        back: false
+      },
+      {
+        title: "Log out",
+        url: "/login",
+        back: true
       }
     ]
   }

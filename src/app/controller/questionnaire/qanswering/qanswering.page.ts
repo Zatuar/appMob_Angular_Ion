@@ -13,9 +13,9 @@ import { NavController } from '@ionic/angular';
 export class QinfoPage {
   questionnaire: Questionnaires;
   type:number;
-  Qid = null;
-  answersQ:AnsweringQ;
-  Cid:any;
+  Qid: any;
+  answersQ: AnsweringQ;
+  Cid: any;
 
   constructor(private listQ: ListQ,
               private ARoute: ActivatedRoute,
@@ -25,38 +25,25 @@ export class QinfoPage {
   
   ngOnInit() {
     this.Qid = this.ARoute.snapshot.paramMap.get('Qid');
+    this.Cid = this.ARoute.snapshot.paramMap.get('Cid');
     this.questionnaire= this.listQ.getquestionnaires()[this.Qid-1];
-    this.answersQ=new AnsweringQ(this.Cid,this.questionnaire.id);
+    this.answersQ=new AnsweringQ(this.Cid,this.Qid,this.questionnaire.questions.length);
     console.log(this.questionnaire);
+    console.log(this.answersQ);
   }
   sendAnswer(){
     this.questionnaire.read=true;
+    console.log(this.answersQ);
     console.log("sended");
     this.nav.pop();
     //envoyer les réponses à la DB
   }
-  typeAnswer(){
-    switch(this.type){
-      case 0:
-        this.freeAnswer();
-        break;
-      case 1:
-        this.multiQcm();
-        break;
-      case 2:
-        this.uniqueQcm();
-        break;
+  typeAnswer(answer: string,multi: boolean){
+    if(!multi){
+      ///supprimer l'aciennce réponse
+
     }
-  }
-  
-  uniqueQcm() {
-
-  }
-  multiQcm() {
-
-  }
-  freeAnswer() {
-
+    
   }
 
 }

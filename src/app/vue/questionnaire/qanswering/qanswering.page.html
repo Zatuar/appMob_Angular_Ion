@@ -17,19 +17,19 @@
           <ion-text> {{q.question}} </ion-text>
           <ion-text *ngIf="q.constraints[0]">*</ion-text>
         </ion-item>
+        <ion-input type="text" *ngIf="!q.qcm" [(ngModel)]="answersQ.answers[questionnaire.questions.indexOf(q)]" name="answer"></ion-input>
         <div *ngIf="q.qcm">
-          <ion-card *ngFor="let answer of q.QCManswer">
-            <ion-item (click)="typeAnswer()">
+          <ion-card *ngFor="let answerqcm of q.QCManswer">
+            <ion-item (click)="typeAnswer(answerqcm,q.constraints[1])">
               <ion-checkbox></ion-checkbox>
-              <ion-text> {{answer}} </ion-text>
+              <ion-text> {{answerqcm}} </ion-text>
             </ion-item>
           </ion-card>          
         </div>
-        <ion-input type="text" *ngIf="!q.qcm"></ion-input>
       </ion-list>
       <ion-text>Toute question comportant une * est obligatoire</ion-text>
       <ion-button type="submit">
-        Send Answers
+        Sending Answers
       </ion-button>
     </form>
       

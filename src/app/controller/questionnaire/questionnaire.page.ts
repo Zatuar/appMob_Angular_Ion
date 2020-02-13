@@ -14,8 +14,8 @@ import { Questionnaires } from 'src/app/models/questionnaires/questionnaire';
 export class QuestionnairePage implements OnInit{
   
   questionnaires: Questionnaires[];
-  Crole: any;
-  Cid:any;
+  Crole= null;
+  Cid= null;
 
   constructor(private listQ: ListQ,
               private Aroute: ActivatedRoute,

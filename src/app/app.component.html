@@ -12,13 +12,13 @@
 
       <ion-list *ngFor="let onglet of navigate">
         <ion-menu-toggle auto-hide="true">
-          <ion-item [routerLink]="onglet.url">
+          <ion-item *ngIf="!onglet.back" [routerLink]="onglet.url">
             {{onglet.title}}
           </ion-item>
+          <ion-back-button *ngIf="onglet.back" defaultHref="{{onglet.url}}" text="{{onglet.title}}"></ion-back-button>
         </ion-menu-toggle>
       </ion-list>
       
-      <ion-back-button defaultHref="/login" text="Log out"></ion-back-button>
     </ion-content>
 
   </ion-menu>

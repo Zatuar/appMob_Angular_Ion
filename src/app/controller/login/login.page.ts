@@ -25,7 +25,7 @@ export class LoginPage {
   identification() {
     if(this.personne.id!='' && this.personne.password!=''){
       if(this.connexionVerification()){
-        alert("Connexion made");
+        console.log("Connexion made");
         this.nav.navigateForward("/home/"+this.personne.id);
       }else{
         alert("Connexion failed");
