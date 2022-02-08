@@ -1,8 +1,9 @@
+import { map } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { CreateC } from 'src/app/models/collaborateur/createC';
+import { NavController, ToastController } from '@ionic/angular';
+import { AngularFireAuth } from '@angular/fire/auth';
 import { Collaborateur } from 'src/app/models/collaborateur/collaborateur';
-import { verifyHostBindings } from '@angular/compiler';
-import { ToastController, NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -16,36 +17,80 @@ export class LoginPage {
     id: '',
     password: ''
   };
+  A: AngularFireAuth;
   
 
-  constructor(private nav: NavController) {
+  constructor(private nav: NavController,
+              private col: Collaborateur,
+              private fireauth: AngularFireAuth,
+              private presentToast:ToastController,
+              private http : HttpClient) {
 
+  }
+
+  login(){
+    this.fireauth.auth.signInWithEmailAndPassword(this.personne.id,this.personne.password)
+    .then(res => {
+      if (res.user) {
+        console.log(res.user);
+        this.http.post('http://localhost:5000/get_profile',this.personne.id)
+    .pipe(map(res => res))
+    .subscribe(data => {
+      console.log(status);
+      console.log(data);
+      this.col.setfeedbacks(data);
+    });
+        this.nav.navigateForward("/home/"+this.personne.id);
+      }
+    })
+    .catch(err => {
+      console.log(`login failed ${err}`);
+    });
   }
 
   identification() {
     if(this.personne.id!='' && this.personne.password!=''){
-      if(this.connexionVerification()){
-        console.log("Connexion made");
-        this.nav.navigateForward("/home/"+this.personne.id);
-      }else{
-        alert("Connexion failed");
-      }
+      console.log("Connexion made");
+      this.login();
+      
+      this.showToast('Connected');
     }else{
-      alert("Connexion failed");
+      this.showToast('Email or Password is missing');
     }
-  }
-  
-  connexionVerification():boolean{
-    //vérification de la connection
-    return true;
   }
 
   forgotPassword(){
-    alert("I forgot my password");
     /**
      * redirection sur la page de réinitialisation
      * de mot de passe
      */
+    if(this.personne.id!=''){
+      this.fireauth.auth.sendPasswordResetEmail(this.personne.id)
+      .then(data => {
+        console.log(data);
+        this.showToast('Password reset email sent');
+        this.nav.navigateForward("/login");
+      })
+      .catch(err => {
+        console.log(` failed ${err}`);
+      });
+    }
+    else{
+      this.showToast('Write your email adress first');
+    }
+    
+  }
+  showToast(Tmessage: string) {
+    this.presentToast.create({
+      message: Tmessage,
+      duration: 2000,
+      animated: true,
+      showCloseButton: true,
+      closeButtonText: "OK",
+      position: "bottom"
+    }).then((obj) => {
+      obj.present();
+    });
   }
   
 }

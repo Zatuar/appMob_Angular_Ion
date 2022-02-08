@@ -14,16 +14,15 @@ export class Collaborateur {
     }
     /**
      * 0: user
-     * 1: 
-     * 2: Creator
-     * 3: Master
+     * 1: Creator
+     * 2: Master
      * 4: Administrator
      */
     
     public getcollaborateur(): CreateC {
         return this._collaborateur;
     }
-      public setfeedbacks(value: CreateC) {
+      public setfeedbacks(value: any) {
         this._collaborateur = value;
      }
 }

@@ -4,6 +4,8 @@ import { Createq } from 'src/app/models/questionnaires/question/createq';
 import { ListQ } from 'src/app/models/questionnaires/ListQ';
 import { NavController } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
+import {HttpClient} from '@angular/common/http';
+import {map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-qcreate',
@@ -19,7 +21,8 @@ export class QcreatePage {
 
   
   constructor(private nav: NavController,
-              private Aroute: ActivatedRoute) {
+              private Aroute: ActivatedRoute,
+              private http: HttpClient) {
   }
 
   ngOnInit() {
@@ -43,7 +46,17 @@ export class QcreatePage {
   sendQ() {
     this.questionnaire.date= new Date();
     console.log(this.questionnaire);
-    console.log('sended');
+    console.log(JSON.stringify(this.questionnaire));
+    this.http.post('http://localhost:5000/create_questionnaire',this.questionnaire)
+    .pipe(map(res => res))
+    .subscribe(data => {
+      console.log(status);
+      console.log(data);
+      
+
+    })
+    //console.log(this.questionnaire);
+    //console.log('sended');
     this.nav.pop();
   }
 }

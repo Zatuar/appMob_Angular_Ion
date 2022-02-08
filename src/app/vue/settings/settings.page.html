@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/home" text="Back"></ion-back-button>
+      <ion-back-button defaultHref="/home"></ion-back-button>
     </ion-buttons>
     <ion-title>
       Settings
@@ -12,11 +12,15 @@
 <ion-content class="ion-padding">
   <ion-item>
     <ion-text>Dark mode</ion-text>
-    <ion-checkbox slot="end"></ion-checkbox>
+    <ion-toggle slot="end"></ion-toggle>
   </ion-item>
   <ion-item>
-    <ion-text>Mute</ion-text>
-    <ion-checkbox slot="end"></ion-checkbox>    
+    <ion-text>Notifications</ion-text>
+    <ion-toggle slot="end"></ion-toggle>  
+  </ion-item>
+  <ion-item>
+    <ion-text>Anonymous</ion-text>
+    <ion-toggle slot="end"></ion-toggle>  
   </ion-item>
   <ion-item>
     <ion-text>Langue</ion-text>    

@@ -4,6 +4,8 @@ import { ListQ } from 'src/app/models/questionnaires/ListQ';
 import { Questionnaires } from 'src/app/models/questionnaires/questionnaire';
 import { AnsweringQ } from 'src/app/models/questionnaires/answeringQ';
 import { NavController } from '@ionic/angular';
+import {HttpClient} from '@angular/common/http';
+import {map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-qanswering',
@@ -19,7 +21,8 @@ export class QinfoPage {
 
   constructor(private listQ: ListQ,
               private ARoute: ActivatedRoute,
-              private nav: NavController) {
+              private nav: NavController,
+              private http: HttpClient) {
 
   }
   
@@ -34,8 +37,18 @@ export class QinfoPage {
   sendAnswer(){
     this.questionnaire.read=true;
     console.log(this.answersQ);
+    console.log(JSON.stringify(this.answersQ));
+    this.http.post('http://localhost:5000/create_questionnaire',{answerQ : this.answersQ, idquestionnaire : this.questionnaire.id, iduser : this.Cid})
+    .pipe(map(res => res))
+    .subscribe(data => {
+      console.log(status);
+      console.log(data);
+      
+
+    })
     console.log("sended");
     this.nav.pop();
+
     //envoyer les réponses à la DB
   }
   typeAnswer(answer: string,multi: boolean){

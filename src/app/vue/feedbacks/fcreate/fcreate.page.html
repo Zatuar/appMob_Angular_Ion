@@ -1,7 +1,7 @@
   <ion-header>
     <ion-toolbar>
       <ion-buttons slot="start">
-        <ion-back-button defaultHref="/feedbacks" text="Back"></ion-back-button>
+        <ion-back-button defaultHref="/feedbacks"></ion-back-button>
       </ion-buttons>
       <ion-title>
         Create your Feedback
@@ -23,13 +23,9 @@
         <ion-input type="text" [(ngModel)]="tags" name="tags" placeholder="your tags"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-input text-wrap type="text" [(ngModel)]="feedback.message" name="message" placeholder="your message"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-text> Do you want to be anonymous ?</ion-text>
-        <ion-checkbox (ionChange)="changeCheckState()" [(ngModel)]="feedback.anonymous" name="anonymous"></ion-checkbox>
-      </ion-item>  
-      <ion-button *ngIf="to!='' " type="submit" shape="round">Send</ion-button>
+        <textarea rows="10" cols="100%" class="Fmessage"  [(ngModel)]="feedback.message" name="message" placeholder="your message"></textarea>
+      </ion-item> 
+      <ion-button *ngIf="to!='' && feedback.title!=''" type="submit" shape="round">Send</ion-button>
     </form>
   </ion-content>
   

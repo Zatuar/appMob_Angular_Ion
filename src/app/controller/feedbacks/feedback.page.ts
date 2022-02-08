@@ -11,7 +11,7 @@ import { Feedbacks } from 'src/app/models/feedbacks/feedback';
 })
 export class FeedbackPage {
   receved:boolean = true;
-  feedbacks: Feedbacks[];
+  feedbacks: any;
   Cid:any;
   
   constructor(private listF: ListF,

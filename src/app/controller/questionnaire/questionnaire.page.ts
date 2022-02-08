@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NavController } from '@ionic/angular';
+import {HttpClient} from '@angular/common/http';
+import {map} from 'rxjs/operators';
 
 import { ListQ } from 'src/app/models/questionnaires/ListQ';
 import { Questionnaires } from 'src/app/models/questionnaires/questionnaire';
@@ -13,13 +15,14 @@ import { Questionnaires } from 'src/app/models/questionnaires/questionnaire';
 
 export class QuestionnairePage implements OnInit{
   
-  questionnaires: Questionnaires[];
+  questionnaires: any;
   Crole= null;
   Cid= null;
 
   constructor(private listQ: ListQ,
               private Aroute: ActivatedRoute,
-              private nav: NavController) {
+              private nav: NavController,
+              private http: HttpClient) {
   }
   //récupération de l'ID et du role du collaborateur
   ngOnInit(){
@@ -28,7 +31,8 @@ export class QuestionnairePage implements OnInit{
   }
 
   ionViewWillEnter(){
-    this.questionnaires= this.listQ.getquestionnaires();
+
+    this.questionnaires= this.listQ.getquestionnaires(); //appel script recup questionnaire bdd
   }
 
   goToCreateQ(){

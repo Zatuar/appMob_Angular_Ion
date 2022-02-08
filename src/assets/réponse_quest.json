@@ -1,7 +1,6 @@
 {
 	"id_questionnaire":int,
 	"id_user":int,
-	"reponses": [{"id_question":int,
-				  "réponse_choisi":string}]
+	"reponses": string[]
 }
 pour l'id user on regardera peut etre le token

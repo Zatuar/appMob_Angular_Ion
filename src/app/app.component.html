@@ -15,7 +15,7 @@
           <ion-item *ngIf="!onglet.back" [routerLink]="onglet.url">
             {{onglet.title}}
           </ion-item>
-          <ion-back-button *ngIf="onglet.back" defaultHref="{{onglet.url}}" text="{{onglet.title}}"></ion-back-button>
+          <ion-back-button *ngIf="onglet.back" defaultHref="{{onglet.url}}" (click)="logOut(onglet.url)" text="{{onglet.title}}"></ion-back-button>
         </ion-menu-toggle>
       </ion-list>
       
